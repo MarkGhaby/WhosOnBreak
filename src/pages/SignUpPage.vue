@@ -34,8 +34,8 @@
           <q-btn
             label="Sign Up"
             type="submit"
-            color="primary"
-            class="full-width"
+            elevated
+            class="bg-teal-400 full-width text-color-white"
           />
         </div>
         <div class="row justify-center q-mt-md">
@@ -43,7 +43,8 @@
             flat
             label="Already Have an Account? Login"
             @click="$router.push('/login')"
-            color="primary"
+            elevated
+            class="bg-teal-400 full-width text-color-white"
           />
         </div>
       </q-form>
