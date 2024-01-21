@@ -114,6 +114,14 @@
 
       return timeSlots;
     },
+
+    generateBreakSlots(){
+
+        let n;
+        const breakSlots = [3][n];
+
+
+    }
   },
 });
 
