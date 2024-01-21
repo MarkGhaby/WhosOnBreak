@@ -64,36 +64,35 @@ export default defineComponent({
     const userPassword = ref("");
 
     const onSubmit = async () => {
-      // Handle the sign-up logic, such as validating input and sending data to your server
-      console.log("Sign-up submitted:", {
+      const userData = {
         email: email.value,
-        password: userPassword.value,
-      });
+        firstName: fullName.value.split(" ")[0],
+        lastName: fullName.value.split(" ")[1],
+      };
 
-      // const userData = {
-      //   email: email.value,
-      //   firstName: fullName.value.split(" ")[0],
-      //   lastName: fullName.value.split(" ")[1],
-      // };
+      console.log(userData);
 
-      // const auth = getAuth();
-      // try {
-      //   const userCredential = await createUserWithEmailAndPassword(
-      //     auth,
-      //     userData.email,
-      //     userPassword.value._value
-      //   );
-      //   console.log("Sign In Success." + password.value);
+      const auth = getAuth();
+      try {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          userData.email,
+          userPassword.value
+        );
+        console.log("Sign In Success.\n" + userCredential.user.uid);
 
-      //   // Add user to Realtime Database
-      //   const db = getDatabase();
-      //   const uid = userCredential.user.uid;
-      //   await set(ref(db, "users/" + uid), userData);
-
-      //   window.location.href = "/";
-      // } catch (error) {
-      //   console.log(error);
-      // }
+        // Add user to Realtime Database
+        const db = getDatabase();
+        const uid = userCredential.user.uid;
+        await set(dbRef(db, "Users/" + uid), {
+          email: userData.email,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+        });
+        window.location.href = "/";
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     const onLogin = () => {
