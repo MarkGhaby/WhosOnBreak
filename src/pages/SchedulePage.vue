@@ -1,309 +1,31 @@
 <template>
-  <div class="w-[600px] bg-metal text-white mx-auto">
-    <table class="col-span-6 py-2 text-center">
-      <thead class="fixed-header">
+  <div class="schedule-container">
+    <table class="schedule-table">
+      <thead>
         <tr>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Time
-          </th>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Monday
-          </th>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Tuesday
-          </th>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Wednesday
-          </th>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Thursday
-          </th>
-          <th
-            class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg"
-          >
-            Friday
-          </th>
+          <th class="header">Time</th>
+          <th class="header" v-for="day in days" :key="day">{{ day }}</th>
         </tr>
       </thead>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(0, 4)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(4, 8)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(8, 12)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(12, 16)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(16, 20)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th class="py-3 bg-cyan-800 border-0" v-for="n in 5" :key="n"></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(20, 24)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(24, 28)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(28, 32)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(32, 36)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(36, 40)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(40, 44)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(44, 48)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(48, 52)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(52, 56)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(56, 60)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(60, 64)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
-      <tr>
-        <th>
-          <div
-            class="py-3 bg-cyan-800 rounded-lg"
-            v-for="(timeSlot, index) in timeSlots.slice(64, 68)"
-            :key="index"
-          >
-            {{ timeSlot }}
-          </div>
-        </th>
-        <th
-          class="border-0 py-3 bg-cyan-800 rounded-lg"
-          v-for="n in 5"
-          :key="n"
-        ></th>
-      </tr>
+      <tbody>
+        <tr v-for="(timeSlot, index) in timeSlots" :key="index">
+          <td class="time-slot">{{ timeSlot }}</td>
+          <td
+            v-for="dayIndex in 5"
+            :key="dayIndex"
+            :class="getScheduleClass(dayIndex - 1, timeSlot)"
+          ></td>
+        </tr>
+      </tbody>
     </table>
+    <div class="legend">
+      <div class="legend-item">
+        <span class="dot your-schedule"></span> Your Schedule
+      </div>
+      <div class="legend-item">
+        <span class="dot common-break"></span> Common Breaks with Alice
+      </div>
+    </div>
   </div>
 </template>
 
@@ -316,59 +38,139 @@ export default defineComponent({
   data() {
     return {
       timeSlots: this.generateTimeSlots(),
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      userSchedule: this.generateUserSchedule(),
+      commonBreaksWithAlice: this.generateCommonBreaksWithAlice(),
     };
   },
+
   methods: {
     generateTimeSlots() {
-      const startTime = 7 * 60;
-      const endTime = 23 * 60;
-      const interval = 15;
-
-      const timeSlots = [];
-
-      for (let i = startTime; i <= endTime; i += interval) {
-        const hours = Math.floor(i / 60);
-        const minutes = i % 60;
-        const period = hours < 12 ? "AM" : "PM";
-        const formattedTime = `${hours % 12 || 12}:${
-          minutes === 0 ? "00" : minutes
-        } ${period}`;
-        timeSlots.push(formattedTime);
+      const startTime = 7 * 60; // Start at 7:00 AM
+      const endTime = 23 * 60; // End at 11:00 PM
+      const interval = 15; // 15-minute intervals
+      let slots = [];
+      for (let time = startTime; time <= endTime; time += interval) {
+        let hours = Math.floor(time / 60);
+        let minutes = time % 60;
+        let formattedTime = `${hours % 12 === 0 ? 12 : hours % 12}:${minutes
+          .toString()
+          .padStart(2, "0")} ${hours < 12 ? "AM" : "PM"}`;
+        slots.push(formattedTime);
       }
-
-      return timeSlots;
+      return slots;
     },
 
-    generateBreakSlots() {
-      const inputData = [
-        [0, 960, 975],
-        [0, 1035, 1440],
-        [2, 960, 975],
-        [2, 1080, 1110],
-        [2, 1230, 1440],
-        [3, 825, 885],
-        [3, 1050, 1440],
-        [4, 960, 975],
-        [4, 1080, 1110],
-        [4, 1215, 1440],
-      ];
+    generateUserSchedule() {
+      // Your schedule data (Modify as needed)
+      let schedule = new Array(5).fill(null).map(() => []);
+      // Example: User has a schedule on Monday from 9:00 AM to 10:15 AM
+      schedule[0].push({ start: 540, end: 615 }); // Convert time to minutes
+      return schedule;
+    },
 
-      //0 ,  960 ,  975 ; 0 ,  1035 ,  1440 ; 2 ,  960 ,  975 ; 2 ,  1080 ,  1110 ; 2 ,  1230 ,  1440 ; 3 ,  825 ,  885 ; 3 ,  1050 ,  1440 ; 4 ,  960 ,  975 ; 4 ,  1080 ,  1110 ; 4 ,  1215 ,  1440 ;
+    generateCommonBreaksWithAlice() {
+      // Hardcoded common break data with Alice
+      return {
+        0: [
+          { start: 960, end: 975 },
+          { start: 1035, end: 1440 },
+        ],
+        2: [
+          { start: 960, end: 975 },
+          { start: 1080, end: 1110 },
+          { start: 1230, end: 1440 },
+        ],
+        3: [
+          { start: 825, end: 885 },
+          { start: 1050, end: 1440 },
+        ],
+        4: [
+          { start: 960, end: 975 },
+          { start: 1080, end: 1110 },
+          { start: 1215, end: 1440 },
+        ],
+      };
+    },
+
+    getScheduleClass(dayIndex, timeSlot) {
+      const currentMinutes = this.timeToMinutes(timeSlot);
+      const isUserScheduled = this.userSchedule[dayIndex].some(
+        ({ start, end }) => currentMinutes >= start && currentMinutes < end
+      );
+      const isCommonBreak = this.commonBreaksWithAlice[dayIndex]?.some(
+        ({ start, end }) => currentMinutes >= start && currentMinutes < end
+      );
+
+      if (isCommonBreak) return "common-break";
+      if (isUserScheduled) return "your-schedule";
+      return "unscheduled";
+    },
+
+    timeToMinutes(timeString) {
+      const [time, period] = timeString.split(" ");
+      let [hours, minutes] = time.split(":").map(Number);
+      hours = period === "PM" ? (hours % 12) + 12 : hours % 12;
+      return hours * 60 + minutes;
     },
   },
 });
 </script>
 
 <style scoped>
-.table-container {
-  max-height: 400px; /* Adjust the max height as needed */
-  overflow-y: auto;
+.schedule-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fixed-header {
-  position: sticky;
-  top: 0;
-  background-color: white; /* Adjust the background color as needed */
-  z-index: 1;
+.schedule-table {
+  border-collapse: collapse;
+  margin-right: 20px; /* Space between table and legend */
+}
+
+.header {
+  background-color: #4fd1c5;
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+.time-slot {
+  background-color: #2c7a7b;
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+.your-schedule {
+  background-color: #82e9de; /* Light color for your schedule */
+}
+
+.common-break {
+  background-color: #2c6a6a; /* Different color for common breaks */
+}
+
+.unscheduled {
+  background-color: #2c7a7b; /* Neutral color for unscheduled slots */
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
 }
 </style>
