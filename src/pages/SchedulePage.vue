@@ -3,6 +3,7 @@
       <table class="col-span-6 py-2 text-center">
         <thead class="fixed-header">
           <tr>
+<<<<<<< Updated upstream
             <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#38bdf8 rounded-lg">Time</th>
             <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#38bdf8 rounded-lg">Monday</th>
             <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#38bdf8 rounded-lg">Tuesday</th>
@@ -78,6 +79,83 @@
         <tr>
             <th><div class="py-3 bg-#38bdf8 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(64, 68)" :key="index">{{timeSlot}}</div></th>
             <th class="border-0 py-3 bg-#38bdf8 rounded-lg" v-for="n in 5" :key="n"></th>
+=======
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Time</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Monday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Tuesday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Wednesday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Thursday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-#0ea5e9 rounded-lg">Friday</th>
+          </tr>
+        </thead>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(0, 4)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(4, 8)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(8, 12)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(12, 16)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(16, 20)" :key="index">{{timeSlot}}</div></th>
+            <th class="py-3 bg-#0ea5e9 border-0" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(20, 24)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(24, 28)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(28, 32)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(32, 36)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(36, 40)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(40, 44)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(44, 48)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(48, 52)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(52, 56)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(56, 60)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(60, 64)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-#0ea5e9 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(64, 68)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-#0ea5e9 rounded-lg" v-for="n in 5" :key="n"></th>
+>>>>>>> Stashed changes
         </tr>
 
       </table>
@@ -117,6 +195,7 @@
 <<<<<<< Updated upstream
 =======
 
+<<<<<<< Updated upstream
     generateBreakSlots(){
 
         const inputData = [
@@ -131,12 +210,17 @@
             [4, 1080, 1110],
             [4, 1215, 1440],
             ];
+=======
+ 
+        
+>>>>>>> Stashed changes
 
         // Organize data by days
         const organizedData = Array.from({ length: 5 }, (_, day) =>
         inputData.filter(item => item[0] === day)
         );
 
+<<<<<<< Updated upstream
         // Calculate break durations for each day
         const breakDurations = organizedData.map(dayData => {
         const sortedClasses = dayData.sort((a, b) => a[1] - b[1]); // Sort classes by start time
@@ -158,6 +242,10 @@
 
 >>>>>>> Stashed changes
   },
+=======
+  }
+
+>>>>>>> Stashed changes
 });
 
 
