@@ -1,4 +1,10 @@
 <template>
+  <input
+    type="file"
+    ref="fileInput"
+    style="display: none"
+    @change="handleFileChange"
+  />
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-teal-400">
       <q-toolbar>
@@ -16,8 +22,8 @@
             </q-btn>
             <q-menu v-model="menuVisible">
               <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section>Profile</q-item-section>
+                <q-item clickable v-close-popup @click="triggerFileUpload">
+                  <q-item-section>Upload a Schedule</q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup @click="signOut">
                   <q-item-section>Sign Out</q-item-section>
@@ -44,6 +50,7 @@
 import { defineComponent, ref, onMounted } from "vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default defineComponent({
   name: "MainLayout",
@@ -51,6 +58,7 @@ export default defineComponent({
   setup() {
     const menuVisible = ref(false);
     const isUserSignedIn = ref(false);
+    const fileInput = ref(null);
     const auth = getAuth();
     const router = useRouter();
 
@@ -59,6 +67,33 @@ export default defineComponent({
         isUserSignedIn.value = user;
       });
     });
+
+    const triggerFileUpload = () => {
+      fileInput.value.click();
+    };
+
+    const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        axios
+          .post("http://127.0.0.1:5000/upload", formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((response) => {
+            console.log("File uploaded successfully " + response.data);
+            // Handle successful response
+          })
+          .catch((error) => {
+            console.error("Error uploading file", error);
+            // Handle error
+          });
+      }
+    };
 
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
@@ -74,7 +109,14 @@ export default defineComponent({
       }
     };
 
-    return { menuVisible, isUserSignedIn, toggleMenu, signOut };
+    return {
+      menuVisible,
+      isUserSignedIn,
+      fileInput,
+      triggerFileUpload,
+      handleFileChange,
+      signOut,
+    };
   },
 });
 </script>
