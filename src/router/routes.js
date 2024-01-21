@@ -15,6 +15,11 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/SignUpPage.vue") }],
   },
+  {
+    path: "/schedule",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/SchedulePage.vue") }],
+  },
 
   
 

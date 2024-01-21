@@ -6,10 +6,10 @@
         <q-input filled v-model="email" label="Email" type="email" :dense="false" lazy-rules :rules="[val => val && val.length > 0 || 'Please type something']" />
         <q-input filled v-model="password" label="Password" type="password" :dense="false" lazy-rules :rules="[val => val && val.length > 0 || 'Please type something']" />
         <div class="row q-mt-lg">
-          <q-btn label="Login" type="submit" color="primary" class="full-width" />
+          <q-btn label="Login" type="submit" elevated class="bg-teal-400 full-width text-color-white"/>
         </div>
         <div class="row justify-center q-mt-md">
-          <q-btn flat label="Not Registered? Sign Up" @click="$router.push('/signup')" color="primary" />
+          <q-btn flat label="Not Registered? Sign Up" @click="$router.push('/signup')" elevated class="bg-teal-400 text-color-white " />
         </div>
       </q-form>
     </div>
