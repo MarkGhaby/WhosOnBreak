@@ -2,27 +2,34 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-teal-400">
       <q-toolbar>
-        <q-toolbar-title @click="$router.push('/')">
+        <div
+          class="text-[#00000] font-bold text-3xl tracking-[-1.5px] cursor-pointer"
+          @click="$router.push('/')"
+        >
           Who's On Break?
-        </q-toolbar-title>
-
-        <div v-if="isUserSignedIn">
-          <q-btn flat round>
-            <q-icon name="person" size="30px" />
-          </q-btn>
-          <q-menu v-model="menuVisible">
-            <q-list>
-              <q-item clickable v-close-popup>
-                <q-item-section>Profile</q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup @click="signOut">
-                <q-item-section>Sign Out</q-item-section>
-              </q-item>
-            </q-list>
-          </q-menu>
         </div>
-        <div v-else @click="$router.push('/login')">
-          <q-icon name="person" size="30px"></q-icon>
+
+        <div class="absolute right-0 mr-[24px]">
+          <div v-if="isUserSignedIn">
+            <q-btn flat round>
+              <q-icon name="person" size="30px" />
+            </q-btn>
+            <q-menu v-model="menuVisible">
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>Profile</q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup @click="signOut">
+                  <q-item-section>Sign Out</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </div>
+          <div v-else @click="$router.push('/login')">
+            <q-btn flat round>
+              <q-icon name="person" size="30px" />
+            </q-btn>
+          </div>
         </div>
       </q-toolbar>
     </q-header>
