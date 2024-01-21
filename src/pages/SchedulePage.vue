@@ -1,74 +1,137 @@
-  <template>
-    <q-layout view="lHh Lpr lFf">
-      <q-header elevated class="bg-teal-400">
-        <q-toolbar>
-          <q-toolbar-title @click="$router.push('/')">
-            Who's On Break?
-          </q-toolbar-title>
+<template>
+    <div class="w-[600px] bg-metal text-white mx-auto">
+      <table class="col-span-6 py-2 text-center">
+        <thead class="fixed-header">
+          <tr>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Time</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Monday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Tuesday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Wednesday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Thursday</th>
+            <th class="box-border h-8 w-32 p-4 border-4 py-3 bg-cyan-800 rounded-lg">Friday</th>
+          </tr>
+        </thead>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(0, 4)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(4, 8)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(8, 12)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(12, 16)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(16, 20)" :key="index">{{timeSlot}}</div></th>
+            <th class="py-3 bg-cyan-800 border-0" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(20, 24)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(24, 28)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(28, 32)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(32, 36)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(36, 40)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(40, 44)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(44, 48)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(48, 52)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(52, 56)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(56, 60)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(60, 64)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
+        <tr>
+            <th><div class="py-3 bg-cyan-800 rounded-lg" v-for="(timeSlot, index) in timeSlots.slice(64, 68)" :key="index">{{timeSlot}}</div></th>
+            <th class="border-0 py-3 bg-cyan-800 rounded-lg" v-for="n in 5" :key="n"></th>
+        </tr>
 
-          <!-- Spacer to push the button to the right -->
-          <q-space></q-space>
-
-          <q-btn flat round icon="person" size="lg" @click="toggleProfileMenu">
-            <q-menu v-model="showProfile">
-              <q-list>
-                <q-item clickable v-close-popup @click="$router.push('/profile')">
-                  <q-item-section>Profile</q-item-section>
-                </q-item>
-                <q-item clickable v-close-popup @click="logout">
-                  <q-item-section>Sign Out</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </q-btn>
-        </q-toolbar>
-      </q-header>
-
-      <q-page-container>
-        <user-selection :users="users" @user-selected="handleUserSelected"></user-selection>
-        <schedule-display :mainUserSchedule="mainUserSchedule" :selectedUserSchedule="selectedUserSchedule"></schedule-display>
-      </q-page-container>
-    </q-layout>
-  </template>
-
+      </table>
+    </div>
+</template>
+  
   <script>
-  import UserSelection from '../components/UserSelection.vue';
-  import ScheduleDisplay from '../components/ScheduleDisplay.vue';
 
-  export default {
-    components: {
-      UserSelection,
-      ScheduleDisplay
-    },
-    data() {
-      return {
-        users: ['Alice', 'Bob', 'Charlie'],
-        mainUserSchedule: {}, // This should contain your main user's schedule data
-        selectedUserSchedule: {}, // This will be updated when a user is selected
-        showProfile: false // Controls the profile menu visibility
-      };
-    },
-    methods: {
-      handleUserSelected(selectedUserName) {
-        this.selectedUserSchedule = this.mockFetchUserSchedule(selectedUserName);
-      },
-      mockFetchUserSchedule(userName) {
-        return {
-          name: userName,
-          schedule: {/* ... simulated schedule data ... */}
-        };
-      },
-      toggleProfileMenu() {
-        this.showProfile = !this.showProfile;
-      },
-      logout() {
-        this.showProfile = false;
-        this.$router.push('/login');
+  import { defineComponent } from "vue"
+
+  export default defineComponent ({
+  name: "SchedulePage",
+
+  data() {
+    return {
+      timeSlots: this.generateTimeSlots(),
+    };
+  },
+  methods: {
+    generateTimeSlots() {
+      const startTime = 7 * 60;
+      const endTime = 23 * 60;
+      const interval = 15;
+
+      const timeSlots = [];
+
+      for (let i = startTime; i <= endTime; i += interval) {
+        const hours = Math.floor(i / 60);
+        const minutes = i % 60;
+        const period = hours < 12 ? 'AM' : 'PM';
+        const formattedTime = `${hours % 12 || 12}:${minutes === 0 ? '00' : minutes} ${period}`;
+        timeSlots.push(formattedTime);
       }
+
+      return timeSlots;
     },
-    created() {
-      // Initialize your main user's schedule here
-      this.mainUserSchedule = {/* ... your schedule data ... */};
-    }
-  };
+  },
+});
+
+
   </script>
+  
+  <style scoped>
+  .table-container {
+    max-height: 400px; /* Adjust the max height as needed */
+    overflow-y: auto;
+  }
+  
+  .fixed-header {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Adjust the background color as needed */
+    z-index: 1;
+  }
+  </style>
+  
+  
