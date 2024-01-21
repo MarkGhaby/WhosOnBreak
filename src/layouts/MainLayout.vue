@@ -2,12 +2,34 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-teal-400">
       <q-toolbar>
-        <q-toolbar-title @click="$router.push('/')">
+        <div
+          class="text-[#00000] font-bold text-3xl tracking-[-1.5px] cursor-pointer"
+          @click="$router.push('/')"
+        >
           Who's On Break?
-        </q-toolbar-title>
+        </div>
 
-        <div @click="$router.push('/login')">
-          <q-icon name="person"></q-icon>
+        <div class="absolute right-0 mr-[24px]">
+          <div v-if="isUserSignedIn">
+            <q-btn flat round>
+              <q-icon name="person" size="30px" />
+            </q-btn>
+            <q-menu v-model="menuVisible">
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section>Profile</q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup @click="signOut">
+                  <q-item-section>Sign Out</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </div>
+          <div v-else @click="$router.push('/login')">
+            <q-btn flat round>
+              <q-icon name="person" size="30px" />
+            </q-btn>
+          </div>
         </div>
       </q-toolbar>
     </q-header>
@@ -19,33 +41,40 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
-
-const linksList = [
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
+import { defineComponent, ref, onMounted } from "vue";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "MainLayout",
 
-  components: {},
-
   setup() {
-    const leftDrawerOpen = ref();
+    const menuVisible = ref(false);
+    const isUserSignedIn = ref(false);
+    const auth = getAuth();
+    const router = useRouter();
 
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+    onMounted(() => {
+      onAuthStateChanged(auth, (user) => {
+        isUserSignedIn.value = user;
+      });
+    });
+
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
     };
+
+    const signOut = async () => {
+      try {
+        await auth.signOut();
+        isUserSignedIn.value = false;
+        router.push("/login");
+      } catch (error) {
+        console.error("Sign out error:", error);
+      }
+    };
+
+    return { menuVisible, isUserSignedIn, toggleMenu, signOut };
   },
 });
 </script>

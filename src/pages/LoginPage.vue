@@ -25,8 +25,8 @@
           <q-btn
             label="Login"
             type="submit"
-            color="primary"
-            class="full-width"
+            elevated
+            class="bg-teal-400 full-width text-color-white"
           />
         </div>
         <div class="row justify-center q-mt-md">
@@ -34,7 +34,8 @@
             flat
             label="Not Registered? Sign Up"
             @click="$router.push('/signup')"
-            color="primary"
+            elevated
+            class="bg-teal-400 text-color-white"
           />
         </div>
       </q-form>
