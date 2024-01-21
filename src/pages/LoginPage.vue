@@ -22,10 +22,21 @@
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
         />
         <div class="row q-mt-lg">
-          <q-btn label="Login" type="submit" elevated class="bg-teal-400 full-width text-color-white"/>
+          <q-btn
+            label="Login"
+            type="submit"
+            elevated
+            class="bg-teal-400 full-width text-color-white"
+          />
         </div>
         <div class="row justify-center q-mt-md">
-          <q-btn flat label="Not Registered? Sign Up" @click="$router.push('/signup')" elevated class="bg-teal-400 text-color-white " />
+          <q-btn
+            flat
+            label="Not Registered? Sign Up"
+            @click="$router.push('/signup')"
+            elevated
+            class="bg-teal-400 text-color-white"
+          />
         </div>
       </q-form>
     </div>
@@ -64,7 +75,7 @@ export default defineComponent({
       if (user) {
         // User is signed in
         console.log("User is signed in:", user);
-        window.location.href = "/";
+        // window.location.href = "/";
       } else {
         // User is signed out
         console.log("User is signed out");
